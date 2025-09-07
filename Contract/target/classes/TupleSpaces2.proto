@@ -1,0 +1,27 @@
+syntax = "proto3";
+package pt.ulisboa.tecnico.tuplespaces.centralized.contract;
+
+import "TupleSpaces.proto";
+
+message EnterRequest {
+  string tuple = 1;
+  int32 clientId = 2;
+  int32 order = 3;
+}
+message EnterResponse {
+  repeated string matches = 1;
+}
+
+message UnlockRequest {
+  string tuple = 1;
+}
+message UnlockResponse {}
+
+service TupleSpaces2 {
+  rpc put(PutRequest) returns (PutResponse);
+  rpc read(ReadRequest) returns (ReadResponse);
+  rpc take(TakeRequest) returns (TakeResponse);
+  rpc getTupleSpacesState(getTupleSpacesStateRequest) returns (getTupleSpacesStateResponse);
+  rpc enter(EnterRequest) returns (EnterResponse);
+  rpc unlock(UnlockRequest) returns (UnlockResponse);
+}

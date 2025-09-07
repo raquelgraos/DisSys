@@ -1,0 +1,48 @@
+syntax = "proto3";
+package pt.ulisboa.tecnico.tuplespaces.centralized.contract;
+
+
+message PutRequest {
+  string newTuple = 1;
+  int32 clientId = 2;
+  int32 order = 3;
+
+}
+message PutResponse {
+  string ack = 1;
+}
+
+message ReadRequest {
+  string searchPattern = 1;
+  int32 clientId = 2;
+  int32 order = 3;
+}
+message ReadResponse {
+  string result = 1;
+}
+
+message TakeRequest {
+  string searchPattern = 1;
+  int32 clientId = 2;
+  int32 order = 3;
+  string tuple = 4;  
+}
+message TakeResponse {
+  string result = 1;
+   string ack = 2;
+}
+
+message getTupleSpacesStateRequest {
+  int32 clientId = 1;
+  int32 order = 2;
+}
+message getTupleSpacesStateResponse {
+  repeated string tuple = 1;
+}
+
+service TupleSpaces {
+  rpc put(PutRequest) returns (PutResponse);
+  rpc read(ReadRequest) returns (ReadResponse);
+  rpc take(TakeRequest) returns (TakeResponse);
+  rpc getTupleSpacesState(getTupleSpacesStateRequest) returns (getTupleSpacesStateResponse);
+}

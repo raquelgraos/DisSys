@@ -1,0 +1,5 @@
+put <a,a1>                 
+put <a,a2> 0 10 10 
+sleep 10
+take <a,[^,]+>
+r

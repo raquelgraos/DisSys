@@ -4,7 +4,7 @@ Distributed Systems Project 2025
 
 **Group A54**
 
-### Final Grade: 19.57
+**Final Grade: 19.57**
 
 **Difficulty level: I am Death incarnate!**
 
